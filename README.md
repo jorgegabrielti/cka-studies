@@ -23,7 +23,7 @@ Siga os passos abaixo para configurar o ambiente de desenvolvimento localmente:
 
 2.  **Navegue até a pasta do projeto:**
     ```bash
-    cd cka-studies
+    cd cka-studies/Vagrant
     ```
 
 3.  **Inicie a máquina virtual com o Vagrant:**
@@ -34,7 +34,8 @@ Siga os passos abaixo para configurar o ambiente de desenvolvimento localmente:
 
 4.  **Acesse a máquina virtual:**
     ```bash
-    vagrant ssh
+    vagrant status
+    vagrant ssh master01
     ```
     Use este comando para acessar a linha de comando dentro da máquina virtual. Agora é apenas começar os estudos :).
 
@@ -51,15 +52,19 @@ Siga os passos abaixo para configurar o ambiente de desenvolvimento localmente:
 **Diretórios e arquivos do projeto:**
 
 *   `cka-studies/`
-    *   `conf/`
-        * `box_configs.yaml`
-        * `default_configs.yaml`
-    *   `img/`
-    *   `provision/`
-        * `provision.sh`
-    *   `.gitignore`
-    *   `README.md`
-    *   `Vagrantfile`
+    *   `Study/`
+        * `aulas/`
+        * `Tutorial`
+    *  `Vagrant`
+        *   `conf/`
+            * `box_configs.yaml`
+            * `default_configs.yaml`
+        *   `img/`
+        *   `provision/`
+            * `provision.sh`
+        *   `.gitignore`
+        *   `README.md`
+        *   `Vagrantfile`
 
 **Tabela 1: Estrutura do Projeto**
 
