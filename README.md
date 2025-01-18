@@ -1,0 +1,70 @@
+# Certified Kubernetes Administrator (CKA) - Studies
+
+Um breve parágrafo descrevendo o propósito geral do seu projeto.
+
+## Requisitos
+
+Antes de começar, você precisará ter as seguintes ferramentas instaladas em seu sistema:
+
+*   **VirtualBox:** Uma plataforma de virtualização de código aberto. Você pode baixá-la no site oficial: [https://www.virtualbox.org/](https://www.virtualbox.org/)
+
+*   **Vagrant:** Uma ferramenta para construir e gerenciar ambientes de desenvolvimento virtuais. Você pode baixá-lo no site oficial: [https://www.vagrantup.com/](https://www.vagrantup.com/)
+
+## Como Começar
+
+Siga os passos abaixo para configurar o ambiente de desenvolvimento localmente:
+
+1.  **Clone este repositório:**
+    ```bash
+    git clone https://github.com/jorgegabrielti/cka-studies.git
+    ```
+
+2.  **Navegue até a pasta do projeto:**
+    ```bash
+    cd cka-studies
+    ```
+
+3.  **Inicie a máquina virtual com o Vagrant:**
+    ```bash
+    vagrant up
+    ```
+    Este comando irá baixar e configurar a máquina virtual definida no `Vagrantfile`. Isso pode levar algum tempo na primeira execução.
+
+4.  **Acesse a máquina virtual:**
+    ```bash
+    vagrant ssh
+    ```
+    Use este comando para acessar a linha de comando dentro da máquina virtual. Agora é apenas começar os estudos :).
+
+## Próximos Passos
+
+*   [Adicione aqui um link para a documentação completa do seu projeto, se tiver]
+*   [Adicione um link para um guia de contribuição, se quiser que outros colaborem]
+*   [Adicione instruções específicas sobre como rodar testes, buildar a aplicação, etc.]
+
+## Estrutura do Projeto
+
+[Se você quiser, adicione aqui uma breve descrição da estrutura de diretórios do projeto para ajudar outros a se encontrarem.]
+
+*   `cka-studies/`
+    *   `conf/`
+        * `box_configs.yaml`
+        * `default_configs.yaml`
+    *   `img/`
+    *   `provision/`
+        * `conf/`
+        * `function/`
+        * `provision.sh`
+    *   `.gitignore`
+    *   `README.md`
+    *   `Vagrantfile`
+    
+## Contribuição
+
+[Adicione uma seção sobre como as pessoas podem contribuir com o seu projeto. Exemplo: "Sinta-se à vontade para criar issues, fazer fork e enviar pull requests."]
+
+## Licença
+
+Este projeto está licenciado sob a [GPL-3.0 license] - veja o arquivo [LICENSE](LICENSE) para detalhes.
+
+Copyright (c) [2025] [Jorge Gabriel]
