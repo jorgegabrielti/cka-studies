@@ -19,6 +19,12 @@ Vamos começar!
         overlay
         br_netfilter
         ```
+        ```bash
+        cat <<EOF | sudo tee /etc/modules-load.d/containerd.conf
+        overlay
+        br_netfilter
+        EOF
+        ```
     *   Em seguida, carregue os módulos:
         ```bash
         sudo modprobe overlay
@@ -30,7 +36,18 @@ Vamos começar!
         net.bridge.bridge-nf-call-iptables = 1
         net.bridge.bridge-nf-call-ip6tables = 1
         net.ipv4.ip_forward = 1
-       ```
+        ```
+        ```bash
+        sudo su
+        ```
+        ```bash
+        cat > /etc/sysctl.d/kubernetes.conf << EOF
+        net.bridge.bridge-nf-call-iptables = 1
+        net.bridge.bridge-nf-call-ip6tables = 1
+        net.ipv4.ip_forward = 1
+        EOF
+        ```
+
     *   Carregue os ajustes:
        ```bash
        sudo sysctl --system
@@ -61,7 +78,7 @@ Vamos começar!
         ```
     *    Reinicie o containerd:
         ```bash
-        sudo systemctl restart containerd
+        sudo systemctl enable --now containerd
         ```
 
 #### 3. Observações Importantes ⚠️
