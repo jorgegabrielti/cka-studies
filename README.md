@@ -56,8 +56,6 @@ Siga os passos abaixo para configurar o ambiente de desenvolvimento localmente:
         * `default_configs.yaml`
     *   `img/`
     *   `provision/`
-        * `conf/`
-        * `function/`
         * `provision.sh`
     *   `.gitignore`
     *   `README.md`
