@@ -1,6 +1,8 @@
 # Certified Kubernetes Administrator (CKA) - Studies
 
-Um breve parágrafo descrevendo o propósito geral do seu projeto.
+Este projeto tem como objetivo criar um ambiente de estudo prático para a certificação **Certified Kubernetes Administrator (CKA)**. Ele utiliza Vagrant e VirtualBox para configurar máquinas virtuais com um ambiente Linux pronto para iniciar os estudos, permitindo que os alunos pratiquem os comandos e conceitos necessários para o exame. O projeto fornece uma infraestrutura virtualizada e configurada, eliminando a complexidade de instalar e configurar um Sistema Operacional do zero. 
+
+Por ser um ambiente fácil de provisionar e destruir, os estudantes podem se concentar em praticar o quanto quiserem. Após finalizar a prática, é possivel apenas executar o comando `vagrant destroy` e `vagrant up` para destruir e construir o ambiente novamente.
 
 ## Requisitos
 
@@ -36,11 +38,13 @@ Siga os passos abaixo para configurar o ambiente de desenvolvimento localmente:
     ```
     Use este comando para acessar a linha de comando dentro da máquina virtual. Agora é apenas começar os estudos :).
 
+<!--
 ## Próximos Passos
 
 *   [Adicione aqui um link para a documentação completa do seu projeto, se tiver]
 *   [Adicione um link para um guia de contribuição, se quiser que outros colaborem]
 *   [Adicione instruções específicas sobre como rodar testes, buildar a aplicação, etc.]
+-->
 
 ## Estrutura do Projeto
 
