@@ -25,6 +25,82 @@ Olá pessoal! Sejam bem-vindos! Hoje vamos focar na instalação dos binários d
 
 #### 3. Executando os Comandos no Terminal 💻
 
+Para desabilitar a swap no `/etc/fstab` no Ubuntu 22.04, você precisa comentar ou remover as linhas que referenciam a partição ou arquivo de swap. Aqui estão os passos e comandos que você pode usar:
+
+**1. Abra o Arquivo `/etc/fstab` com Privilégios de Root:**
+
+   Você precisará de privilégios de administrador para editar este arquivo. Use o `sudo` com seu editor de texto preferido. Por exemplo, para usar o `nano`:
+   ```bash
+   sudo nano /etc/fstab
+   ```
+   Ou se preferir o `vim`:
+   ```bash
+   sudo vim /etc/fstab
+   ```
+
+**2. Identifique a Linha de Swap:**
+
+   Procure por uma linha que tenha a palavra "swap" nela. Geralmente, ela se parece com algo assim:
+   ```
+   /dev/sda2        none            swap    sw              0       0
+   ```
+   Ou, se estiver usando um arquivo de swap:
+   ```
+   /swapfile        none            swap    sw              0       0
+   ```
+   `sda2` (ou algo similar) é o caminho da partição de swap, e `/swapfile` é o caminho de um arquivo swap.
+
+**3. Comente ou Remova a Linha:**
+
+   *   **Para comentar a linha:** Adicione um `#` no início da linha. Isso fará com que ela seja ignorada pelo sistema.
+        ```
+        # /dev/sda2        none            swap    sw              0       0
+        ```
+    ou
+       ```
+        # /swapfile        none            swap    sw              0       0
+        ```
+   *   **Para remover a linha:** Simplesmente delete a linha inteira.
+
+**4. Salve e Feche o Arquivo:**
+
+    *   No `nano`: Pressione `Ctrl+X`, depois `Y` (para confirmar a alteração) e `Enter`.
+    *   No `vim`: Pressione `Esc`, depois digite `:wq` e pressione `Enter`.
+
+**5. Verifique:**
+
+   Após editar o `/etc/fstab`, execute:
+
+   ```bash
+   sudo swapon -s
+   ```
+    Este comando deve exibir que nenhuma swap está habilitada no momento. Para ter certeza que a swap não será habilitada durante os próximos reboots, você pode reiniciar o sistema:
+    ```bash
+    sudo reboot
+    ```
+
+**Observações Importantes:**
+
+*   **Swapoff:** É importante que você execute `sudo swapoff -a` **antes** de editar o `/etc/fstab`. Isso desabilitará a swap ativa no momento e evitará problemas.
+*   **Root:** Lembre-se que você precisa de privilégios de root para editar este arquivo.
+*   **Reboot:** Depois de fazer as alterações, é sempre bom reiniciar o sistema para garantir que tudo funcione corretamente.
+
+**Importante:**
+
+Se você não tem certeza sobre qual linha comentar, faça um backup do arquivo `/etc/fstab` antes de modificá-lo:
+
+```bash
+sudo cp /etc/fstab /etc/fstab.backup
+```
+
+Se algo der errado, você poderá restaurar o arquivo original com:
+
+```bash
+sudo cp /etc/fstab.backup /etc/fstab
+```
+
+Seguindo esses passos, você desabilitará a swap no `/etc/fstab` no Ubuntu 22.04.
+
 *   **Máquina Limpa:** Começamos com uma máquina Ubuntu limpa.
 *   **Comandos:**
     ```bash
