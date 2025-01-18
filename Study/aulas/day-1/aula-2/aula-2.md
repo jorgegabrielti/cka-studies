@@ -70,3 +70,7 @@ Excelente! Com a criação das máquinas virtuais na AWS e o acesso via SSH, est
 A nossa meta é criar um ambiente Kubernetes funcional que nos prepare para a prova CKA e, claro, para o mundo real!
 
 Na próxima aula, vamos instalar o Kubernetes nos nós criados e começar a configurar o cluster. Mantenham-se engajados e qualquer dúvida, perguntem! Até lá! 👋
+
+### Referência:
+
+- https://v1-31.docs.kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/

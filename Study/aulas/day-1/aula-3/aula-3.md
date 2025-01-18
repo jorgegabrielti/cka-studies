@@ -90,3 +90,7 @@ Olá pessoal! Sejam bem-vindos! Hoje vamos focar na instalação dos binários d
 E é isso! Instalamos os binários do Kubernetes, e preparamos o CRI. É importante lembrar que a parte da configuração do CRI não cai na prova, mas é crucial para o cluster funcionar.
 
 Nas próximas aulas, vamos dar os próximos passos para deixar nosso cluster pronto para uso. Mantenham-se engajados e não hesitem em perguntar! 👋
+
+### Referência:
+
+- https://v1-31.docs.kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
