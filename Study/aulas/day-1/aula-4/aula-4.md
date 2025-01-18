@@ -12,10 +12,6 @@ Vamos começar!
 
 #### 1. Ajustes de Rede 🌐
 
-*   **Swap Off (Opcional):**
-    *   Em ambientes AWS, o swap já vem desabilitado.
-    *   Se estiver usando uma VM local, use: `sudo swapoff -a` para desabilitar o swap.
-    *   Remova as entradas do swap em `/etc/fstab` também.
 *   **Módulos do Kernel:**
     *   Precisamos habilitar os módulos `overlay` e `br_netfilter`.
     *   Para isso, crie o arquivo `/etc/modules-load.d/containerd.conf` com o seguinte conteúdo:
@@ -82,3 +78,6 @@ Vamos começar!
 Perfeito! Finalizamos a preparação do ambiente. Ajustamos a rede, habilitamos módulos do kernel e configuramos o `containerd` como CRI. Estamos prontos para iniciar o cluster Kubernetes.
 
 Lembrem-se, cada etapa é fundamental para que o nosso cluster funcione corretamente. Nas próximas aulas, vamos criar o cluster e fazer todo o processo de inicialização. Mantenham-se engajados e qualquer dúvida, perguntem! Até lá! 👋
+
+### Referência:
+- https://v1-31.docs.kubernetes.io/docs/setup/production-environment/container-runtimes/

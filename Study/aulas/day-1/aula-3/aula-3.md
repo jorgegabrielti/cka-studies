@@ -78,6 +78,10 @@ Para desabilitar a swap no `/etc/fstab` no Ubuntu 22.04, você precisa comentar 
     ```bash
     sudo reboot
     ```
+Também é possível remover a configuração de swap com o comando:
+```bash
+sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
+```
 
 **Observações Importantes:**
 
