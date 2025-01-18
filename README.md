@@ -59,15 +59,19 @@ Siga os passos abaixo para configurar o ambiente de desenvolvimento localmente:
     *   `README.md`
     *   `Vagrantfile`
 
-- **cka-studies**: Diretório raíz do projeto.    
-- **conf/**: Configurações gerais e específicas para construção de Vagrant boxes. Contém os arquivos:
-    * **box_config.yaml**: Essa configuração define uma máquina virtual para desenvolvimento ou teste. Ela especifica a imagem base, recursos computacionais como CPU e memória, uma pasta compartilhada com o sistema host, o mapeamento de portas e um script para provisionar após a inicialização da máquina.
-    * **default_configs.yaml**: Defini configurações gerais do **Vagrantfile**.
-- **img**: Imagens ilustrativas.
-- **provision/**: Contém scripts de inicialização para prover alguma tarefa após a inicialização da máquina virtual.
-    * `provision.sh`: Script de inicialização.
-- **LICENSE**: Arquivo de licença do repositório.
-- **Vagrantfile**: Este Vagrantfile configura um ambiente de desenvolvimento ou teste com múltiplas máquinas virtuais, utilizando informações do arquivo YAML `**conf/defaults_configs.yaml**` e `**conf/box_configs.yaml**`. Ele define as bases para cada máquina, como o sistema operacional, nome, recursos computacionais, pastas compartilhadas, configurações de rede (mapeamento de portas) e scripts de provisionamento. Ele itera através de uma lista de configurações para cada máquina, aplicando as definições correspondentes.
+**Tabela 1: Estrutura do Projeto**
+
+| Item         | Descrição                                                                                                                                                                                                                                                                  |
+|--------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `cka-studies` | Diretório raiz do projeto.                                                                                                                                                                                                                                                |
+| `conf/`      | Configurações gerais e específicas para construção de Vagrant boxes. Contém os arquivos:                                                                                                                                                                                  |
+|     `box_config.yaml`    |     Essa configuração define uma máquina virtual para desenvolvimento ou teste. Ela especifica a imagem base, recursos computacionais como CPU e memória, uma pasta compartilhada com o sistema host, o mapeamento de portas e um script para provisionar após a inicialização da máquina. |
+|     `default_configs.yaml` |     Define configurações gerais do `Vagrantfile`.                                                                                                                                                                      |
+| `img/`       | Imagens ilustrativas.                                                                                                                                                                                                                                                       |
+| `provision/` | Contém scripts de inicialização para prover alguma tarefa após a inicialização da máquina virtual.                                                                                                                                                                                  |
+|     `provision.sh`    |     Script de inicialização.                                                                                                                                                                                                      |
+| `LICENSE`    | Arquivo de licença do repositório.                                                                                                                                                                                                                                           |
+| `Vagrantfile` | Este `Vagrantfile` configura um ambiente de desenvolvimento ou teste com múltiplas máquinas virtuais, utilizando informações dos arquivos YAML `conf/defaults_configs.yaml` e `conf/box_configs.yaml`. Ele define as bases para cada máquina, como o sistema operacional, nome, recursos computacionais, pastas compartilhadas, configurações de rede (mapeamento de portas) e scripts de provisionamento. Ele itera através de uma lista de configurações para cada máquina, aplicando as definições correspondentes.   |
 <!--
 ## Contribuição
 
