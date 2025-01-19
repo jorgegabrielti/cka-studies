@@ -94,3 +94,5 @@ rm cilium-linux-${CLI_ARCH}.tar.gz{,.sha256sum}
 sleep 60
 
 cilium install
+
+kubeadm token create --print-join-command
