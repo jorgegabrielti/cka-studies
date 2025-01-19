@@ -16,7 +16,7 @@
 # Description:
 #
 # Algortimo do script :
-#  Automation to aws iam management.
+#  Instalação do Cluster com Kubeadm.
 # --------------------------------------------------------------------------
 grep swap /etc/fstab && swapoff -a && sudo sed -i '/swap/d' /etc/fstab || echo "Swap memory: OK"
 
