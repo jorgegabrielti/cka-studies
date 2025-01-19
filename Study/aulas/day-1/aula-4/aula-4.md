@@ -42,9 +42,13 @@ Vamos começar!
         ```
         ```bash
         cat > /etc/sysctl.d/kubernetes.conf << EOF
+        net.ipv4.ip_forward = 1
+        net.ipv4.conf.all.forwarding = 1
+        net.ipv6.conf.all.forwarding = 1
         net.bridge.bridge-nf-call-iptables = 1
         net.bridge.bridge-nf-call-ip6tables = 1
-        net.ipv4.ip_forward = 1
+        net.ipv4.conf.all.rp_filter = 0
+        net.ipv6.conf.all.rp_filter = 0
         EOF
         ```
 
@@ -60,7 +64,6 @@ Vamos começar!
 *   **Instalação:**
     *   Instale o `containerd`:
         ```bash
-        sudo apt update
         sudo apt install -y containerd
         ```
 *   **Configuração:**
@@ -72,13 +75,14 @@ Vamos começar!
          ```bash
         containerd config default | sudo tee /etc/containerd/config.toml
          ```
-    *    Modifique a configuração para utilizar `systemd`:
-        ```bash
-        sudo sed -i 's/SystemdCgroup = false/SystemdCgroup = true/g' /etc/containerd/config.toml
+    *   Modifique a configuração para utilizar `systemd`:
+        ```bash 
+        sudo sed -i 's/SystemdCgroup.*/SystemdCgroup = true/g' /etc/containerd/config.toml
         ```
-    *    Reinicie o containerd:
+    *   Reinicie o containerd:
         ```bash
         sudo systemctl enable --now containerd
+        sudo systemctl status containerd
         ```
 
 #### 3. Observações Importantes ⚠️
