@@ -25,14 +25,18 @@ Siga os passos abaixo para configurar o ambiente de desenvolvimento localmente:
     ```bash
     cd cka-studies/Vagrant
     ```
+3. **Instale o plugin: vagrant-disksize**
+    ```bash
+    vagrant plugin install vagrant-disksize
+    ```
 
-3.  **Inicie a máquina virtual com o Vagrant:**
+4.  **Inicie a máquina virtual com o Vagrant:**
     ```bash
     vagrant up
     ```
     Este comando irá baixar e configurar a máquina virtual definida no `Vagrantfile`. Isso pode levar algum tempo na primeira execução.
 
-4.  **Acesse a máquina virtual:**
+5.  **Acesse a máquina virtual:**
     ```bash
     vagrant status
     vagrant ssh master01
