@@ -60,8 +60,9 @@ A prova CKA é dividida em tópicos, cada um com um peso específico na pontuaç
 Para consulta detalhada dos currículos, acesse os links abaixo:
 
 *   **Currículo Geral da CNCF:** [https://github.com/cncf/curriculum](https://github.com/cncf/curriculum)
-*   **Currículo da CKAD:** [https://github.com/cncf/curriculum/blob/master/CKAD_Curriculum_v1.31.pdf](https://github.com/cncf/curriculum/blob/master/CKAD_Curriculum_v1.31.pdf)
-*   **Currículo da CKA (Em Breve - Q1 2025):** [https://github.com/cncf/curriculum/blob/master/CKA_Curriculum Coming Soon Q1 2025.pdf](https://github.com/cncf/curriculum/blob/master/CKA_Curriculum Coming Soon Q1 2025.pdf)
+*   **Currículo da CKAD:** [https://github.com/cncf/curriculum/blob/master/CKA_Curriculum_v1.31.pdf](https://github.com/cncf/curriculum/blob/master/CKA_Curriculum_v1.31.pdf)
+*   **Currículo da CKA:** [https://github.com/cncf/curriculum/blob/master/CKA_Curriculum_v1.31.pdf](https://github.com/cncf/curriculum/blob/master/CKA_Curriculum_v1.31.pdf)
+*   **Currículo da CKA Coming Soon (Em Breve - Q1 2025):** [\[https://github.com/cncf/curriculum/blob/master/CKA_Curriculum Coming Soon Q1 2025.pdf](https://github.com/cncf/curriculum/blob/master/CKA_Curriculum%20Coming%20Soon%20Q1%202025.pdf)
 
 #### 3. As Mudanças na Nova Versão da CKA  🔄
 
