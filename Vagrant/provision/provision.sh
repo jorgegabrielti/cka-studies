@@ -20,6 +20,23 @@
 # --------------------------------------------------------------------------
 grep swap /etc/fstab && swapoff -a && sudo sed -i '/swap/d' /etc/fstab || echo "Swap memory: OK"
 
+
+which netplan || sudo apt-get install -y netplan.io
+
+sudo cat <<EOF | sudo tee /etc/netplan/50-vagrant.yaml
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    enp0s8:
+      dhcp4: no
+      addresses:
+        - 192.168.1.100/24
+EOF
+
+sudo chmod 600 /etc/netplan/50-vagrant.yaml
+sudo netplan apply
+
 sudo apt-get update
 
 sudo apt-get install -y apt-transport-https ca-certificates curl pgp
@@ -70,7 +87,9 @@ sudo sed -i 's/SystemdCgroup.*/SystemdCgroup = true/g' /etc/containerd/config.to
 
 sudo systemctl enable --now containerd
 
-sudo kubeadm init
+export INTERNAL_NETWORK_IP="$(ip a show enp0s8 | grep 'inet ' | awk '{print $2}' | cut -d'/' -f1)"
+
+sudo kubeadm init --apiserver-advertise-address=${INTERNAL_NETWORK_IP}
 
 grep -i "ubuntu" /etc/passwd && export HOME="/home/ubuntu" USER="ubuntu" || export HOME="/home/vagrant" USER="vagrant"
 
