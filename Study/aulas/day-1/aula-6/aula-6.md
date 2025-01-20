@@ -1,5 +1,3 @@
-Com certeza! Aqui está a aula tutorial em formato Markdown, baseada no texto que você forneceu, com foco na instalação do Cilium CLI:
-
 ## 🚀 Instalando o Cilium CLI para Kubernetes
 
 ### Introdução
