@@ -77,6 +77,11 @@ O Cilium CLI facilita a configuração, monitoramento e troubleshooting do Ciliu
      ```
      *   Isso deve retornar a versão do CLI.
 
+    ```bash
+    kubectl get nodes
+    kubectl get pods -n kubesystem
+    ```
+
 ### Conclusão
 
 Parabéns! Você instalou com sucesso o Cilium CLI no seu nó Kubernetes. Agora você pode usar o `cilium` para verificar o status, fazer troubleshooting e gerenciar o seu cluster Kubernetes.

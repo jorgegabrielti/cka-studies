@@ -8,7 +8,7 @@
   dir_host: '.'
   dir_guest: '/vagrant'
   cpu: '4'
-  ram: '6144'
+  ram: '4096'
   disk: '30GB'
   vmgui: 'false'
   host_port: '1020' 

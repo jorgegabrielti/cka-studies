@@ -115,3 +115,5 @@ sleep 60
 cilium install
 
 kubeadm token create --print-join-command
+
+sudo reboot
