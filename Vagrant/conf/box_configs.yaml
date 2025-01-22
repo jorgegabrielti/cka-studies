@@ -13,6 +13,21 @@
   vmgui: 'false'
   host_port: '1020' 
   guest_port: '443'
-  file_provision: './provision/provision.sh'
-  kubernetes_component: 'control-plane'
+  file_provision: './provision/provision-master.sh'
+
+- name: 'worker01'
+  box: 'jgmr-ubuntu/ubuntu_server-22.04'
+  box_name: 'worker01'
+  box_version: "1.0"
+  box_provider: 'virtualbox'
+  hostname: 'worker01'
+  dir_host: '.'
+  dir_guest: '/vagrant'
+  cpu: '4'
+  ram: '4096'
+  disk: '30GB'
+  vmgui: 'false'
+  host_port: '1021' 
+  guest_port: '8443'
+  file_provision: './provision/provision-worker.sh'
 ...
