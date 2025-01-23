@@ -1,0 +1,6 @@
+iac/terraform/aws/*.pem
+iac/terraform/aws/.terraform/modules/modules.json
+iac/terraform/aws/.terraform/*
+iac/terraform/aws/.terraform.lock.hcl
+iac/terraform/aws/terraform.tfstate
+iac/terraform/aws/terraform.tfstate.backup

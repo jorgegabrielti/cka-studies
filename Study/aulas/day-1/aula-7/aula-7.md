@@ -23,7 +23,7 @@ Olá pessoal! Sejam muito bem-vindos a mais uma aula do nosso treinamento para a
 #### 3. Executando o Upgrade: Control Plane ⚙️
 *   **Utlização do repositório:**
     ```bash
-    curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.31/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+    curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.32/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
     ```
 
     ```bash
