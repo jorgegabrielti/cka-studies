@@ -85,3 +85,5 @@ sudo containerd config default | sudo tee /etc/containerd/config.toml
 sudo sed -i 's/SystemdCgroup.*/SystemdCgroup = true/g' /etc/containerd/config.toml
 
 sudo systemctl enable --now containerd
+
+sudo reboot
