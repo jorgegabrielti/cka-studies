@@ -81,6 +81,7 @@ sudo containerd config default | sudo tee /etc/containerd/config.toml
 
 # 16. Habilitando o suporte ao systemd.
 sudo sed -i 's/SystemdCgroup.*/SystemdCgroup = true/g' /etc/containerd/config.toml
+sudo systemctl restart kubelet
 
 # 17. Start do containerd.
-sudo systemctl enable --now containerd
+sudo systemctl enable --now containerd && sudo reboot
