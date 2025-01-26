@@ -92,6 +92,3 @@ kubectl get cm
 *   **Autocompletar:** Use a tecla `TAB` para autocompletar e evitar erros de digitação.
 *  **Versão:** No `etcdctl` a API 3, é a mais atualizada, use: `ETCDCTL_API=3`.
 *   **Variáveis de Ambiente:** Para usar os comandos do etcd você pode declarar as variáveis `ETCDCTL_API=3` ou `ETCDCTL_ENDPOINT='https://[endereço do etcd]:2379'`
-
----
-Espero que a organização dos comandos desta forma te ajude nos estudos e na prática! Se precisar de mais detalhes ou de outros comandos, é só me avisar. 😉
