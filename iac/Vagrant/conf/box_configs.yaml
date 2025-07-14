@@ -1,8 +1,8 @@
 ---
 - name: 'master01'
-  box: 'vagrant-projects/ubuntu-24.04.2-live-server-amd64'
+  box: 'ubuntu/jammy64'
   box_name: 'master01'
-  box_version: "0.1.0"
+  box_version: "20241002.0.0"
   box_provider: 'virtualbox'
   hostname: 'master01'
   dir_host: '.'
@@ -13,12 +13,13 @@
   vmgui: 'false'
   host_port: '1020' 
   guest_port: '443'
-  #file_provision: './provision/provision-master.sh'
+  file_provision: './provision/provision-master.sh'
+  
 
 - name: 'worker01'
-  box: 'vagrant-projects/ubuntu-24.04.2-live-server-amd64'
+  box: 'ubuntu/jammy64'
   box_name: 'worker01'
-  box_version: "0.1.0"
+  box_version: "20241002.0.0"
   box_provider: 'virtualbox'
   hostname: 'worker01'
   dir_host: '.'
@@ -29,5 +30,5 @@
   vmgui: 'false'
   host_port: '1021' 
   guest_port: '8443'
-  #file_provision: './provision/provision-worker.sh'
+  file_provision: './provision/provision-worker.sh'
 ...

@@ -17,8 +17,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       box.vm.box         = env['box']
       box.vm.hostname    = env['hostname']
       box.vm.box_version = env['box_version'] 
-      box.vm.synced_folder env['dir_host'], env['dir_guest']
-      
+      box.vm.synced_folder env['dir_host'], env['dir_guest'], type: "virtualbox"
+
       box.vm.provider env['box_provider'] do |vb|
         vb.gui    = env['vmgui']
         vb.cpus   = env['cpu']

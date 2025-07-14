@@ -18,6 +18,11 @@
 # Algortimo do script :
 #  Instalação do Cluster com Kubeadm.
 # --------------------------------------------------------------------------
+
+# Exit on error, undefined variable, or error in pipeline
+set -euo pipefail
+
+
 grep swap /etc/fstab && swapoff -a && sudo sed -i '/swap/d' /etc/fstab || echo "Swap memory: OK"
 
 
@@ -91,7 +96,8 @@ export INTERNAL_NETWORK_IP="$(ip a show enp0s8 | grep 'inet ' | awk '{print $2}'
 
 sudo kubeadm init --apiserver-advertise-address=${INTERNAL_NETWORK_IP}
 
-grep -i "ubuntu" /etc/passwd && export HOME="/home/ubuntu" USER="ubuntu" || export HOME="/home/vagrant" USER="vagrant"
+export HOME="/home/vagrant" USER="vagrant"
+#grep -i "ubuntu" /etc/passwd && export HOME="/home/ubuntu" USER="ubuntu" || export HOME="/home/vagrant" USER="vagrant"
 
 mkdir -p $HOME/.kube
 
