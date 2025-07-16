@@ -6,7 +6,8 @@
 # +----------------------------------------------------------------------+ #
 # |                                                                      | #
 # | Name          : provision-worker.sh                                  | #
-# | Function      : Kubernete worker node: Install and configuration     | # |                 with kubeadm                                         | #
+# | Function      : Kubernete worker node: Install and configuration     | #
+#                   with kubeadm                                         | #
 # | Version       : 1.0                                                  | #
 # | Author        : Jorge Gabriel (Site Releability Engeneer)            | #
 # +----------------------------------------------------------------------+ #
@@ -18,7 +19,6 @@
 #  Instalação e configuração do worker node com Kubeadm.
 # --------------------------------------------------------------------------
 grep swap /etc/fstab && swapoff -a && sudo sed -i '/swap/d' /etc/fstab || echo "Swap memory: OK"
-
 
 which netplan || sudo apt-get install -y netplan.io
 
@@ -37,7 +37,7 @@ sudo chmod 600 /etc/netplan/50-vagrant.yaml
 sudo netplan apply
 
 sudo apt-get update
-
+sudo apt-get install -y net-tools
 sudo apt-get install -y apt-transport-https ca-certificates curl pgp
 
 sudo curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.31/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
@@ -85,5 +85,10 @@ sudo containerd config default | sudo tee /etc/containerd/config.toml
 sudo sed -i 's/SystemdCgroup.*/SystemdCgroup = true/g' /etc/containerd/config.toml
 
 sudo systemctl enable --now containerd
+
+export INTERNAL_NETWORK_IP="$(ip a show enp0s8 | grep 'inet ' | awk '{print $2}' | cut -d'/' -f1)"
+echo "KUBELET_EXTRA_ARGS=--node-ip=${INTERNAL_NETWORK_IP}" | sudo tee /etc/default/kubelet
+sudo systemctl daemon-reexec
+sudo systemctl restart kubelet
 
 sudo reboot

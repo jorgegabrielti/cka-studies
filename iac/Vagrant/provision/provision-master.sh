@@ -22,9 +22,7 @@
 # Exit on error, undefined variable, or error in pipeline
 set -euo pipefail
 
-
 grep swap /etc/fstab && swapoff -a && sudo sed -i '/swap/d' /etc/fstab || echo "Swap memory: OK"
-
 
 which netplan || sudo apt-get install -y netplan.io
 
@@ -43,7 +41,7 @@ sudo chmod 600 /etc/netplan/50-vagrant.yaml
 sudo netplan apply
 
 sudo apt-get update
-
+sudo apt-get install -y net-tools
 sudo apt-get install -y apt-transport-https ca-certificates curl pgp
 
 sudo curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.31/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
@@ -92,7 +90,13 @@ sudo sed -i 's/SystemdCgroup.*/SystemdCgroup = true/g' /etc/containerd/config.to
 
 sudo systemctl enable --now containerd
 
+# export INTERNAL_NETWORK_IP="$(ip a show enp0s8 | grep 'inet ' | awk '{print $2}' | cut -d'/' -f1)"
+
 export INTERNAL_NETWORK_IP="$(ip a show enp0s8 | grep 'inet ' | awk '{print $2}' | cut -d'/' -f1)"
+echo "KUBELET_EXTRA_ARGS=--node-ip=${INTERNAL_NETWORK_IP}" | sudo tee /etc/default/kubelet
+sudo systemctl daemon-reexec
+sudo systemctl restart kubelet
+
 
 sudo kubeadm init --apiserver-advertise-address=${INTERNAL_NETWORK_IP}
 
@@ -116,7 +120,20 @@ sha256sum --check cilium-linux-${CLI_ARCH}.tar.gz.sha256sum
 sudo tar xzvfC cilium-linux-${CLI_ARCH}.tar.gz /usr/local/bin
 rm cilium-linux-${CLI_ARCH}.tar.gz{,.sha256sum}
 
-sleep 60 && cilium install
+#sleep 60 && cilium install 
+#\
+#  --helm-set kubeProxyReplacement=disabled \
+#  --helm-set k8sServiceHost=${INTERNAL_NETWORK_IP} \
+#  --helm-set k8sServicePort=6443
+
+# Identifier cilium stable version
+CILIUM_STABLE_VERSION=$(cilium version --as string | grep stable | cut -d':' -f2 | tr -d 'v')
+
+sleep 60 && cilium install \
+  --version ${CILIUM_CLI_VERSION} \
+  --helm-set kubeProxyReplacement=false \
+  --helm-set k8sServiceHost=${INTERNAL_NETWORK_IP} \
+  --helm-set k8sServicePort=6443
 
 kubeadm token create --print-join-command
 
