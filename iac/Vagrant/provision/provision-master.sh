@@ -130,7 +130,7 @@ rm cilium-linux-${CLI_ARCH}.tar.gz{,.sha256sum}
 CILIUM_STABLE_VERSION=$(cilium version --as string | grep stable | cut -d':' -f2 | tr -d 'v')
 
 sleep 60 && cilium install \
-  --version ${CILIUM_CLI_VERSION} \
+  --version ${CILIUM_STABLE_VERSION} \
   --helm-set kubeProxyReplacement=false \
   --helm-set k8sServiceHost=${INTERNAL_NETWORK_IP} \
   --helm-set k8sServicePort=6443
